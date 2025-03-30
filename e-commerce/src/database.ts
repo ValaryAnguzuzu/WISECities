@@ -1,7 +1,7 @@
 import { MikroORM } from "@mikro-orm/core";
 import { SqliteDriver } from "@mikro-orm/sqlite";
-import { Product } from "./entities/Product";
-import { Cart } from "./entities/Cart";
+import { Product } from "./entities/Product.js";
+import { Cart } from "./entities/Cart.js";
 
 // Simple database configuration
 export const orm = await MikroORM.init({
@@ -14,4 +14,4 @@ export const orm = await MikroORM.init({
 
 // Automatically create tables if they don't exist
 const generator = orm.getSchemaGenerator();
-await generator.createSchema();
+await generator.updateSchema();
